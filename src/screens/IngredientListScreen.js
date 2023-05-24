@@ -12,6 +12,11 @@ const IngredientListScreen = ({ navigation }) => {
 
   const fetchIngredientes = async () => {
     try {
+      if (ingredientes.length > 0) {
+        console.log('Ingredientes ya existen en el estado:', ingredientes);
+        return; // No es necesario realizar la llamada a la API
+      }
+  
       console.log('Fetching ingredientes...');
       const response = await axios.get('http://localhost:3000/ingredientes');
       console.log('Ingredientes recibidos:', response.data);
@@ -21,15 +26,18 @@ const IngredientListScreen = ({ navigation }) => {
     }
   };
   
+  
 
   const renderIngrediente = ({ item }) => (
     <View style={styles.row}>
-      <Text style={[styles.cell, styles.header]}>{item.Nombre}</Text>
-      <Text style={styles.cell}>Unidad de medida: {item.Unidad_Medida}</Text>
-      <Text style={styles.cell}>Tamaño del paquete: {item.Tamano_Paquete}</Text>
-      <Text style={styles.cell}>Costo: ${item.Costo}</Text>
+      <Text style={[styles.cell, styles.header]}>{item.nombre_ingrediente}</Text>
+      <Text style={styles.cell}>Unidad de medida: {item.unidad_medida}</Text>
+      <Text style={styles.cell}>Tamaño del paquete: {item.tamano_paquete}</Text>
+      <Text style={styles.cell}>Costo: ${item.costo}</Text>
     </View>
   );
+  
+  
   
 
   console.log('Ingredientes en el estado:', ingredientes);
@@ -47,7 +55,7 @@ const IngredientListScreen = ({ navigation }) => {
         <FlatList
           data={ingredientes}
           renderItem={renderIngrediente}
-          keyExtractor={(item) => item.ID.toString()}
+          keyExtractor={(item) => item.id.toString()}
         />
       </View>
       <TouchableOpacity

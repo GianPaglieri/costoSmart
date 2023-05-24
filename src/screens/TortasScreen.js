@@ -23,10 +23,10 @@ const TortasScreen = ({ navigation }) => {
 
   const renderTorta = ({ item }) => (
     <View style={styles.row}>
-      <Text style={[styles.cell, styles.header]}>{item.ID_TORTA}</Text>
-      <Text style={styles.cell}>{item.NOMBRE_TORTA}</Text>
-      <Text style={styles.cell}> {item.CANTIDAD_INGREDIENTE}</Text>
-      <Text style={styles.cell}> {item.UNIDAD_MEDIDA}</Text>
+      <Text style={[styles.cell, styles.header]}>{item.id_torta}</Text>
+      <Text style={styles.cell}>{item.nombre_torta}</Text>
+      <Text style={styles.cell}> {item.cantidad_ingrediente}</Text>
+      <Text style={styles.cell}> {item.unidad_medida}</Text>
     </View>
   );
 
@@ -45,7 +45,7 @@ const TortasScreen = ({ navigation }) => {
         <FlatList
           data={tortas}
           renderItem={renderTorta}
-          keyExtractor={(item) => item.ID_TORTA.toString()}
+          keyExtractor={(item) => item.id_torta.toString()}
         />
       </View>
       <TouchableOpacity
@@ -65,6 +65,7 @@ const TortasScreen = ({ navigation }) => {
 };
 
 export default TortasScreen;
+
 
 
 
