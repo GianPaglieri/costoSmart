@@ -30,10 +30,10 @@ const IngredientListScreen = ({ navigation }) => {
 
   const renderIngrediente = ({ item }) => (
     <View style={styles.row}>
-      <Text style={[styles.cell, styles.header]}>{item.nombre_ingrediente}</Text>
-      <Text style={styles.cell}>Unidad de medida: {item.unidad_medida}</Text>
-      <Text style={styles.cell}>Tamaño del paquete: {item.tamano_paquete}</Text>
-      <Text style={styles.cell}>Costo: ${item.costo}</Text>
+      <Text style={[styles.cell, styles.header]}>{item.nombre}</Text>
+      <Text style={styles.cell}>{item.unidad_Medida}</Text>
+      <Text style={styles.cell}>{item.tamano_Paquete}</Text>
+      <Text style={styles.cell}>${item.costo}</Text>
     </View>
   );
   
