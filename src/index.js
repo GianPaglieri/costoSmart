@@ -1,10 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import ReactDOM from 'react-dom';
+import './styles/styles';
+import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+import { NavigationContainer } from '@react-navigation/native';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+ReactDOM.render(
+  <React.StrictMode>
+    <NavigationContainer>
+      <App />
+    </NavigationContainer>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 root.render(
   <React.StrictMode>
     <App />
